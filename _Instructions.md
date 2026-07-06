@@ -55,7 +55,16 @@ Primárny zdroj prekladov je [[Glossary]]. Vždy keď sa použije IFC termín v 
 
 ---
 
-## GitHub push workflow
+## Štýl zápisu — workflow témy (dôvody + "ako sme na to prišli")
+
+Pri témach v `topics/`, ktoré popisujú **workflow/architektonické rozhodnutie** (nie len fakt o entite), platí navyše:
+
+1. **Rozpísať podrobnejšie prečo je to tak** — nielen záver ("robíme X"), ale normatívne/logické zdôvodnenie za ním (citácia zo spec, alebo jasne označená vlastná úvaha, ak spec mlčí). Cieľ: o pol roka má byť z poznámky jasné, prečo bolo rozhodnuté práve takto, nie len čo bolo rozhodnuté.
+2. **Stručne doplniť "Ako sme na to prišli"** — krátky naratív myšlienkového postupu (2-5 viet alebo bodov), ktorý zachytí kľúčové zlomové body úvahy (napr. "pôvodne sa zvažovalo X, ale ukázalo sa Y, preto Z"). Nie je to prepis celej konverzácie — len logická kostra cesty k záveru, vrátane prípadných omylov/korekcií po ceste (tie sú často najcennejšie).
+3. Toto platí primárne pre `topics/` (workflow, architektonické rozhodnutia). Súbory v `entities/` môžu zostať stručnejšie, faktografické — pri nich stačí sekcia "Otvorené otázky/poznámky", ak si to vyžaduje kontext.
+4. Existujúce staršie témy sa pri ďalšom pushi príslušnej oblasti priebežne dopĺňajú o tieto sekcie, ak ešte chýbajú — netreba retroaktívne prepisovať všetko naraz, len keď sa k téme aj tak vraciame.
+
+---
 
 Tento vault sa aktualizuje priamo z konverzácií (Claude, claude.ai projekt), nie ručne.
 

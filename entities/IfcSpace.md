@@ -24,8 +24,8 @@ Spec **nemandátuje**, či má teleso `IfcSpace` siahať slab-to-slab alebo len 
 
 ## Otvorené otázky / poznámky
 
-- Revit IFC export **neprodukuje** automaticky vzťah medzi MEP prvkami (napr. `IfcAirTerminal`) a `IfcSpace`, do ktorého fakticky patria — cross-discipline containment sa musí dopočítať dodatočne.
-- Pozri [[Téma - spájanie geometrie IfcSpace a IfcElement]] pre detail k tomuto problému a zvolenému riešeniu.
+- Revit IFC export **neprodukuje** automaticky vzťah medzi MEP prvkami (napr. `IfcAirTerminal`) a `IfcSpace`, do ktorého fakticky patria — cross-discipline containment sa musí dopočítať dodatočne (semantic enrichment).
+- Pozri [[Téma - Cross-file spatial containment (ETL, IDS, ICDD)]] pre detail k tomuto problému (vrátane cross-file prípadu VZT↔ASR) a zvolenému riešeniu.
 - ⚠️ Nepotvrdené (nemám priamy zdroj): Revit Qto hodnoty (`GrossFloorArea`/`NetFloorArea` a analogicky výškové) sú podľa Autodesk vlastného dev blogu historicky nespoľahlivé — v niektorých prípadoch identické Gross/Net hodnoty namiesto odlišných. Overiť priamo na Office_centrum_Brno.ifc, nespoliehať sa na export bez validácie.
 - Fire compartment presahujúci viacero `IfcSpace` (vrátane hrúbky stien/plenumu) → rieši sa cez [[IfcSpatialZone]], nie cez `IfcSpace` samotné. Pozri [[Téma - Výškové kóty priestoru a fire compartment]].
 
@@ -35,6 +35,5 @@ Spec **nemandátuje**, či má teleso `IfcSpace` siahať slab-to-slab alebo len 
 - [[IfcBuildingStorey]]
 - [[IfcZone]]
 - [[IfcSpatialZone]]
-- [[Téma - spájanie geometrie IfcSpace a IfcElement]]
 - [[Téma - Výškové kóty priestoru a fire compartment]]
 - [[Téma - Cross-file spatial containment (ETL, IDS, ICDD)]]
