@@ -52,3 +52,23 @@ Primárny zdroj prekladov je [[Glossary]]. Vždy keď sa použije IFC termín v 
 ---
 
 *Reálne obsahové súbory (entity, témy, slovník) sa tvoria a pushujú podľa týchto pravidiel, nie priamo podľa tohto súboru.*
+
+---
+
+## GitHub push workflow
+
+Tento vault sa aktualizuje priamo z konverzácií (Claude, claude.ai projekt), nie ručne.
+
+**Ako to funguje:**
+
+1. Fine-grained GitHub token (scope obmedzený len na toto repo, permission "Contents: Read and write") je uložený ako súbor v Project Knowledge daného claude.ai projektu — nie v tomto repe, nie v sandboxe trvalo.
+2. Keď v ktoromkoľvek chate v projekte príde pokyn typu *"pushni X do IFCstudy"*:
+   - token sa vyhľadá v Project Knowledge,
+   - repo sa naklonuje do dočasného sandboxu,
+   - nové/upravené MD súbory sa vytvoria podľa pravidiel vyššie (autorita = ifc43-docs, jazykové pravidlá SK/CZ cez `Glossary.md`, wikilinky medzi entitami a témami),
+   - zmeny sa commitnú a pushnú cez **HTTPS s tokenom** (nie SSH — port 22 je v sandboxe blokovaný firewallom, funguje len HTTPS na `github.com`),
+   - token sa po pushi odstráni z lokálnej git remote URL (ostáva len v Project Knowledge).
+3. Sandbox sa medzi jednotlivými chatmi resetuje — nie je to teda "trvalé pripojenie", ale token sa vždy nájde nanovo. Z pohľadu používateľa to funguje ako jeden pokyn v ktoromkoľvek chate v projekte.
+
+**Bezpečnostná poznámka:** token/kľúč nie je v šifrovanom trezore — Project Knowledge je bežné textové úložisko projektu. Scope je preto zámerne obmedzený len na toto jedno repo.
+
